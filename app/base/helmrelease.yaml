@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: n8n
+spec:
+  interval: 30m
+  releaseName: n8n
+  chartRef:
+    kind: OCIRepository
+    name: n8n-chart
+  valuesFrom:
+    - kind: ConfigMap
+      name: n8n-values
+      valuesKey: values.yaml

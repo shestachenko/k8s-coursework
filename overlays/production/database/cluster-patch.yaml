@@ -1,0 +1,20 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: n8n-db
+spec:
+  instances: 2
+  storage:
+    size: 5Gi
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+    limits:
+      cpu: "2"
+      memory: 2Gi
+  postgresql:
+    parameters:
+      max_connections: "200"
+  affinity:
+    podAntiAffinityType: preferred
