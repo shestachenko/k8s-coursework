@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: production
 resources:
   - ../../../app/base
+  - certificate.yaml
 patches:
   - path: secret-patch.yaml
 configMapGenerator:

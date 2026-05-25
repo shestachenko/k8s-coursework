@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
+    - name: cert-manager-issuers
     - name: production-database
   interval: 10m
   path: ./overlays/production/app

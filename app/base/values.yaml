@@ -29,7 +29,12 @@ ingress:
   enabled: true
   className: traefik
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+  tls:
+    - secretName: n8n-tls
+      hosts:
+        - n8n.CHANGE_ME.local
   hosts:
     - host: n8n.CHANGE_ME.local
       paths:
@@ -38,13 +43,13 @@ ingress:
 
 webhook:
   enabled: true
-  url: http://n8n.CHANGE_ME.local
+  url: https://n8n.CHANGE_ME.local
 
 config:
-  timezone: Europe/Moscow
+  timezone: Europe/Kyiv
   extraEnv:
     - name: N8N_EDITOR_BASE_URL
-      value: http://n8n.CHANGE_ME.local
+      value: https://n8n.CHANGE_ME.local
 
 secretRefs:
   existingSecret: n8n-secrets
