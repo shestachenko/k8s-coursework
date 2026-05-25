@@ -19,6 +19,8 @@ database:
 redis:
   enabled: false
 
+replicaCount: 2
+
 hpa:
   main:
     enabled: true
@@ -42,22 +44,22 @@ ingress:
   sticky:
     enabled: true
   hosts:
-    - host: app.local
+    - host: n8n.production.local
       paths:
         - path: /
           pathType: Prefix
 
 webhook:
   enabled: true
-  url: http://app.local
+  url: http://n8n.production.local
 
 config:
   timezone: Europe/Moscow
   extraEnv:
     - name: WEBHOOK_URL
-      value: http://app.local/
+      value: http://n8n.production.local/
     - name: N8N_EDITOR_BASE_URL
-      value: http://app.local
+      value: http://n8n.production.local
 
 secretRefs:
   existingSecret: n8n-secrets

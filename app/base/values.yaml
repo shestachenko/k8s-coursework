@@ -18,7 +18,8 @@ redis:
 replicaCount: 1
 
 persistence:
-  enabled: false
+  enabled: true
+  size: 1Gi
 
 service:
   type: ClusterIP
