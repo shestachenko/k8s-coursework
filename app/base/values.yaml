@@ -43,8 +43,6 @@ webhook:
 config:
   timezone: Europe/Moscow
   extraEnv:
-    - name: WEBHOOK_URL
-      value: http://n8n.CHANGE_ME.local/
     - name: N8N_EDITOR_BASE_URL
       value: http://n8n.CHANGE_ME.local
 
